@@ -55,3 +55,86 @@ class ViewController: UIViewController {
     }
 }
 
+
+
+// 解答例
+
+// 方法1
+//let minus1: Int
+//if switch1.isOn {
+//    minus1 = -num1
+//} else {
+//    minus1 = num1
+//}
+//
+//let minus2: Int
+//if switch2.isOn {
+//    minus2 = -num2
+//} else {
+//    minus2 = num2
+//}
+//
+//let result = minus1 + minus2
+//
+//label1.text = "\(minus1)"
+//label2.text = "\(minus2)"
+//answerLabel.text = "\(result)"
+
+// 方法2
+//let minusArray = [(textField1, switch1), (textField2, switch2)].map { tf, sw in
+//    (Int(tf.text ?? "") ?? 0) * (sw.isOn ? -1 : 1)
+//}
+//
+//label1.text = "\(minusArray[0])"
+//label2.text = "\(minusArray[1])"
+//answerLabel.text = "\(minusArray.reduce(0, +))"
+
+// 方法3
+//let input1: Int = Int(textField1.text ?? "") ?? 0
+//let number1: Int
+//if switch1.isOn {
+//    number1 = input1 * -1
+//} else {
+//    number1 = input1
+//}
+//label1.text = String(number1)
+//
+//let input2: Int = Int(textField2.text ?? "") ?? 0
+//let number2: Int
+//if switch2.isOn {
+//    number2 = input2 * -1
+//} else {
+//    number2 = input2
+//}
+//label2.text = String(number2)
+//
+//answerLabel.text = String(number1 + number2)
+
+// 方法4
+//let input1: Int = Int(textField1.text ?? "") ?? 0
+//let number1: Int = switch1.isOn ? input1 * -1 : input1
+//label1.text = String(number1)
+//
+//let input2: Int = Int(textField2.text ?? "") ?? 0
+//let number2: Int = switch2.isOn ? input2 * -1 : input2
+//label2.text = String(number2)
+//
+//answerLabel1.text = String(number1 + number2)
+
+// 方法5
+//@IBAction private func pushCalcButton(_ sender: Any) {
+//    let numberWithSign1 = numberWithSign(textField: textField1, signSwitch: switch1)
+//    textField1.text = String(numberWithSign1)
+//    let numberWithSign2 = numberWithSign(textField: textField2, signSwitch: switch2)
+//    textField2.text = String(numberWithSign2)
+//    answerLabel.text = String(numberWithSign1 + numberWithSign2)
+//}
+//
+//private func numberWithSign(textField: UITextField, signSwitch: UISwitch) -> Int {
+//    let input: Int = Int(textField.text ?? "") ?? 0
+//    if signSwitch.isOn {
+//        return input * -1
+//    } else {
+//        return input
+//    }
+//}

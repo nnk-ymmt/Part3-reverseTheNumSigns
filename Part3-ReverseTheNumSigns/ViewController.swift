@@ -39,30 +39,19 @@ class ViewController: UIViewController {
         guard let num1 = Int(textField1.text ?? ""),
             let num2 = Int(textField2.text ?? "") else { return }
         
-//        if switch1.isOn {
-//            label1.text = "-\(num1)"
-//        } else {
-//            label1.text = "\(num1)"
-//        }
-//        if switch2.isOn {
-//            label2.text = "-\(num2)"
-//        } else {
-//            label2.text = "\(num2)"
-//        }
         if switch1.isOn {
-            label1.text = String.localizedStringWithFormat("%d", -num1)
+            label1.text = "-\(num1)"
         } else {
-            label1.text = String.localizedStringWithFormat("%d", num1)
+            label1.text = "\(num1)"
         }
         if switch2.isOn {
-            label2.text = String.localizedStringWithFormat("%d", -num2)
+            label2.text = "-\(num2)"
         } else {
-            label2.text = String.localizedStringWithFormat("%d", num2)
+            label2.text = "\(num2)"
         }
+        
         let sum = (Int(label1.text ?? "") ?? 0) + (Int(label2.text ?? "") ?? 0)
         answerLabel.text = "\(sum)"
-        
-        
     }
 }
 

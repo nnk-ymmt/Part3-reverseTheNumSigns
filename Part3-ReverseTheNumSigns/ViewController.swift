@@ -39,25 +39,51 @@ class ViewController: UIViewController {
         guard let num1 = Int(textField1.text ?? ""),
             let num2 = Int(textField2.text ?? "") else { return }
         
+//        if switch1.isOn {
+//            label1.text = "-\(num1)"
+//        } else {
+//            label1.text = "\(num1)"
+//        }
+//        if switch2.isOn {
+//            label2.text = "-\(num2)"
+//        } else {
+//            label2.text = "\(num2)"
+//        }
         if switch1.isOn {
-            label1.text = "-\(num1)"
+            label1.text = String.localizedStringWithFormat("%d", -num1)
         } else {
-            label1.text = "\(num1)"
+            label1.text = String.localizedStringWithFormat("%d", num1)
         }
         if switch2.isOn {
-            label2.text = "-\(num2)"
+            label2.text = String.localizedStringWithFormat("%d", -num2)
         } else {
-            label2.text = "\(num2)"
+            label2.text = String.localizedStringWithFormat("%d", num2)
         }
-        
         let sum = (Int(label1.text ?? "") ?? 0) + (Int(label2.text ?? "") ?? 0)
         answerLabel.text = "\(sum)"
+        
+        
     }
 }
 
 
 
-// 解答例
+// 改善点
+
+// カンマを追加する仕様変更があった場合、1000,2000を入力するとanswerLabelの数値がおかしくなる
+// 数値は早い段階で数値として保持し、それをベースに変換していく
+//if switch1.isOn {
+//    label1.text = String.localizedStringWithFormat("%d", -num1)
+//} else {
+//    label1.text = String.localizedStringWithFormat("%d", num1)
+//}
+//if switch2.isOn {
+//    label2.text = String.localizedStringWithFormat("%d", -num2)
+//} else {
+//    label2.text = String.localizedStringWithFormat("%d", num2)
+//}
+
+// 解答例(以下で一番推奨されるのは方法1、次に方法2)
 
 // 方法1
 //let minus1: Int

@@ -72,7 +72,7 @@ class ViewController: UIViewController {
 //    label2.text = String.localizedStringWithFormat("%d", num2)
 //}
 
-// 解答例(以下で一番推奨されるのは方法1、次に方法2)
+// 解答例(方法1推奨)
 
 // 方法1
 //let minus1: Int
@@ -103,6 +103,12 @@ class ViewController: UIViewController {
 //label1.text = "\(minusArray[0])"
 //label2.text = "\(minusArray[1])"
 //answerLabel.text = "\(minusArray.reduce(0, +))"
+
+// 方法2'
+// この場合textFieldではなくUserDefaultsに仕様変更する場合、1行目だけを変更すれば良い
+//let numbers: [Int] = [textField1, textField2].map { Int($0.text ?? "") ?? 0 }
+//let signs: [Int] = [switch1, switch2].map { $0.isOn ? -1 : 1 }
+//let result: Int = zip(numbers, signs).map { $0.0 * $0.1 }.reduce(0, +)
 
 // 方法3
 //let input1: Int = Int(textField1.text ?? "") ?? 0

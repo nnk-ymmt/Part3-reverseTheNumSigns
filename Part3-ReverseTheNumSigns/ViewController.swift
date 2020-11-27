@@ -8,37 +8,25 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
     @IBOutlet private weak var textField1: UITextField!
     @IBOutlet private weak var textField2: UITextField!
-    
     @IBOutlet private weak var switch1: UISwitch!
     @IBOutlet private weak var switch2: UISwitch!
-    
     @IBOutlet private weak var plusButton: UIButton!
-    
     @IBOutlet private weak var label1: UILabel!
     @IBOutlet private weak var label2: UILabel!
-    
     @IBOutlet private weak var answerLabel: UILabel!
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
-    
-    
+
     @IBAction private func add(_ sender: Any) {
-        
         guard let num1 = Int(textField1.text ?? ""),
             let num2 = Int(textField2.text ?? "") else { return }
-        
+
         if switch1.isOn {
             label1.text = "-\(num1)"
         } else {
@@ -49,7 +37,7 @@ class ViewController: UIViewController {
         } else {
             label2.text = "\(num2)"
         }
-        
+    
         let sum = (Int(label1.text ?? "") ?? 0) + (Int(label2.text ?? "") ?? 0)
         answerLabel.text = "\(sum)"
     }
@@ -75,34 +63,34 @@ class ViewController: UIViewController {
 // 解答例(方法1推奨)
 
 // 方法1
-//let minus1: Int
+//let value1: Int
 //if switch1.isOn {
-//    minus1 = -num1
+//    value1 = -num1
 //} else {
-//    minus1 = num1
+//    value1 = num1
 //}
 //
-//let minus2: Int
+//let value2: Int
 //if switch2.isOn {
-//    minus2 = -num2
+//    value2 = -num2
 //} else {
-//    minus2 = num2
+//    value2 = num2
 //}
 //
-//let result = minus1 + minus2
+//let result = value1 + value2
 //
-//label1.text = "\(minus1)"
-//label2.text = "\(minus2)"
+//label1.text = "\(value1)"
+//label2.text = "\(value2)"
 //answerLabel.text = "\(result)"
 
 // 方法2
-//let minusArray = [(textField1, switch1), (textField2, switch2)].map { tf, sw in
+//let valueArray = [(textField1, switch1), (textField2, switch2)].map { tf, sw in
 //    (Int(tf.text ?? "") ?? 0) * (sw.isOn ? -1 : 1)
 //}
 //
-//label1.text = "\(minusArray[0])"
-//label2.text = "\(minusArray[1])"
-//answerLabel.text = "\(minusArray.reduce(0, +))"
+//label1.text = "\(valueArray[0])"
+//label2.text = "\(valueArray[1])"
+//answerLabel.text = "\(valueArray.reduce(0, +))"
 
 // 方法2'
 // この場合textFieldではなくUserDefaultsに仕様変更する場合、1行目だけを変更すれば良い
